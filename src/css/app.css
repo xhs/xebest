@@ -1,0 +1,274 @@
+body {
+    background-color: #030f20;
+    color: white;
+}
+
+.xebest-navbar {
+    position: fixed;
+    z-index: 30;
+    width: 100%;
+    top: 0;
+}
+
+.xebest-container {
+    padding-top: 3.25rem;
+}
+
+.xebest-navbar.xebest-is-primary {
+    height: 3.25rem;
+    background-color: #041933;
+}
+
+.xebest-navbar .xebest-navbar-avatar {
+    position: absolute;
+    left: 0.35rem;
+    top: 0.35rem;
+}
+
+.xebest-navbar .xebest-navbar-avatar img {
+    height: 2.55rem;
+    width: auto;
+}
+
+.xebest-navbar .xebest-navbar-back {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+
+.xebest-navbar .xebest-navbar-back img {
+    height: 1.25rem;
+    width: auto;
+}
+
+.xebest-navbar .xebest-navbar-logo {
+    display: block;
+    height: 3.25rem;
+    width: auto;
+    margin: 0 auto;
+    padding: 0.8rem 0;
+}
+
+.xebest-navbar .xebest-navbar-title {
+    text-align: center;
+    line-height: 3.25rem;
+    width: auto;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.xebest-tip {
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.xebest-pie-container {
+    padding: 1.2rem;
+}
+
+.xebest-pie-row {
+    padding-bottom: 40px;
+}
+
+.xebest-pie {
+    position: relative;
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.xebest-pie-name {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+}
+
+.xebest-pie.xebest-is-critical {
+    background-color: #f75e13;
+    box-shadow: 0 0 20px #2574a8;
+}
+
+.xebest-pie.xebest-is-warning {
+    background-color: #f79312;
+    box-shadow: 0 0 20px #2574a8;
+}
+
+.xebest-pie.xebest-is-normal {
+    background-color: #18b4e0;
+    box-shadow: 0 0 20px #2773a8;
+}
+
+.xebest-pie .xebest-pie-temperature {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 20%;
+}
+
+.xebest-pie .xebest-pie-description {
+    display: block;
+    text-align: center;
+    font-size: 0.65rem;
+    padding-top: 0.1rem;
+}
+
+.xebest-current-temperature {
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+}
+
+.xebest-current-temperature img {
+    height: 150px;
+    width: 100%;
+}
+
+.xebest-current-temperature .xebest-temperature-pie {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ececec;
+    top: 25px;
+    left: 50%;
+    margin-left: -50px;
+    box-shadow: 0 0 20px #23add5;
+}
+
+.xebest-current-temperature .xebest-temperature-pie .xebest-temperature-value {
+    text-align: center;
+    color: #fc412b;
+    font-size: 1.8rem;
+    padding-top: 15px;
+}
+
+.xebest-current-temperature .xebest-temperature-pie .xebest-temperature-label {
+    text-align: center;
+    color: #fc412b;
+    font-size: 0.9rem;
+}
+
+.xebest-page-tab {
+    position: relative;
+    background-color: #072a5b;
+    height: 65px;
+    text-align: center;
+    border-left: 1px solid #295694;
+    color: #c6d6e8;
+    font-size: 1.2rem;
+    border-bottom: 4px solid #295694;
+}
+
+.xebest-page-tab .xebest-tab-content {
+    line-height: 60px;
+}
+
+.xebest-page-tab.xebest-highlight {
+    color: #0ed0fe;
+    border-bottom: 4px solid #0ed0f0;
+}
+
+.xebest-page-tab .xebest-highlight-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: auto;
+    margin-left: -6px;
+}
+
+.xebest-label {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+.columns.xebest-clear-margin-bottom {
+    margin-bottom: 0!important;
+}
+
+.xebest-timeline {
+  overflow: hidden;
+  margin: 1rem auto;
+}
+
+.xebest-timeline .xebest-timeline-container {
+  position: relative;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.xebest-timeline .xebest-timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 13px;
+  height: 100%;
+  width: 4px;
+  background: #376f95;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block {
+  position: relative;
+  margin: 2.5em 0;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block:first-child {
+  margin-top: 0;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0ed0fe;
+  box-shadow: 0 0 0 4px #376f95, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  margin-top: 0.8em;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-critical .xebest-timeline-icon {
+    background-color: #f95d04;
+    box-shadow: 0 0 0 4px #fdc5a1, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-critical .xebest-timeline-content .xebest-timeline-content-title {
+    color: #f95d04;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-critical .xebest-timeline-content .xebest-timeline-content-body {
+    color: #f95d04;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-icon img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  border-radius: 0.25em;
+  padding: 0 0.5em;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content .xebest-timeline-content-title {
+  font-size: 1.2em;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content .xebest-timeline-content-body {
+  font-size: 1.1em;
+  color: #8a8a8a;
+}
