@@ -7,9 +7,17 @@
 </nav>
 
 <div class="xebest-container">
+  <div class="modal" data-bind="css: {'is-active': ifShowChart}">
+    <div class="modal-background" data-bind="click: hideChart"></div>
+    <div class="modal-content">
+      <canvas id="chart" width="100%" height="80%"></canvas>
+    </div>
+    <button class="modal-close is-large" data-bind="click: hideChart"></button>
+  </div>
+
   <div class="xebest-current-temperature">
     <img src="css/images/page_banner.png">
-    <div class="xebest-temperature-pie">
+    <div class="xebest-temperature-pie" data-bind="click: showChart">
       <div class="xebest-temperature-value">-5℃</div>
       <div class="xebest-temperature-label">当前温度</div>
     </div>

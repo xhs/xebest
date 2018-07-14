@@ -21,8 +21,11 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojmodule-el
       // Router setup
       self.router = oj.Router.rootInstance
       self.router.configure({
-        'home': { label: 'Home', isDefault: true },
-        'page': { label: 'Page' }
+        'home': { label: '首页', isDefault: true },
+        'page': { label: '商品详情' },
+        'threshold': { label: '预警温度' },
+        'commodity': { label: '运输商品' },
+        'status': { label: '区块链状态' }
       })
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter()
 
@@ -49,12 +52,16 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojmodule-el
       // Navigation setup
       var navData = [
         {
-          name: 'Home',
-          id: 'home'
+          name: '温度阈值设置',
+          id: 'threshold'
         },
         {
-          name: 'Page',
-          id: 'page'
+          name: '运输商品设置',
+          id: 'commodity'
+        },
+        {
+          name: '区块链状态',
+          id: 'status'
         }
       ]
       self.navDataSource = new oj.ArrayTableDataSource(navData, { idAttribute: 'id' })

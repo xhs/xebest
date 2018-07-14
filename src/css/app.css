@@ -188,49 +188,49 @@ body {
 }
 
 .xebest-timeline {
-  overflow: hidden;
-  margin: 1rem auto;
+    overflow: hidden;
+    margin: 1rem auto;
 }
 
 .xebest-timeline .xebest-timeline-container {
-  position: relative;
-  margin: 0 auto;
-  width: 85%;
+    position: relative;
+    margin: 0 auto;
+    width: 85%;
 }
 
 .xebest-timeline .xebest-timeline-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 13px;
-  height: 100%;
-  width: 4px;
-  background: #376f95;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 13px;
+    height: 100%;
+    width: 4px;
+    background: #376f95;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block {
-  position: relative;
-  margin: 2.5em 0;
+    position: relative;
+    margin: 2.5em 0;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #0ed0fe;
-  box-shadow: 0 0 0 4px #376f95, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-  margin-top: 0.8em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #0ed0fe;
+    box-shadow: 0 0 0 4px #376f95, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    margin-top: 0.8em;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-critical .xebest-timeline-icon {
@@ -247,28 +247,98 @@ body {
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-icon img {
-  display: block;
-  width: 24px;
-  height: 24px;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  margin-left: -12px;
-  margin-top: -12px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content {
-  position: relative;
-  margin-left: 60px;
-  border-radius: 0.25em;
-  padding: 0 0.5em;
+    position: relative;
+    margin-left: 60px;
+    border-radius: 0.25em;
+    padding: 0 0.5em;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content .xebest-timeline-content-title {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-content .xebest-timeline-content-body {
-  font-size: 1.1em;
-  color: #8a8a8a;
+    font-size: 1.1em;
+    color: #8a8a8a;
+}
+
+.xebest-threshold-display {
+    height: 120px;
+}
+
+.xebest-threshold-display .xebest-threshold-display-value {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 2.2rem;
+    color: #f95d04;
+}
+
+.xebest-threshold-display .xebest-threshold-display-label {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.xebest-threshold-config .xebest-threshold-config-label {
+    background-color: #efefef;
+    border: none;
+}
+
+.xebest-threshold-config .xebest-threshold-config-button {
+    background-color: #0ed0fe;
+    color: white;
+    border: none;
+}
+
+.xebest-commodity-display {
+    height: 120px;
+}
+
+.xebest-commodity-display .xebest-commodity-display-value {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #f95d04;
+}
+
+.xebest-commodity-display .xebest-commodity-display-label {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.xebest-commodity-config {
+    margin: 0 30px;
+}
+
+.xebest-commodity-config .xebest-commodity-config-button {
+    background-color: #0ed0fe;
+    color: white;
+    border: none;
+}
+
+.xebest-commodity-config-options {
+    margin-top: 45px;
+}
+
+.xebest-radio-item {
+    margin: 28px 0;
+    font-size: 1rem;
+}
+    
+.xebest-radio-item input:checked~.state.p-primary-o label:before {
+    border-color: #0ed0fe;
+}
+    
+.xebest-radio-item input:checked~.state.p-primary-o label:after {
+    background-color: #0ed0fe!important;
 }
