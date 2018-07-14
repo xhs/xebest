@@ -11,81 +11,16 @@
 
   <div class="xebest-tip has-text-white">食品安全温度提示</div>
 
-  <div class="xebest-pie-container">
+  <div class="xebest-pie-container" data-bind="foreach: commodityGroups">
     <div class="xebest-pie-row">
-      <div class="columns is-mobile">
-        <div class="column is-one-third" data-key="foobar" data-bind="click: loadPage">
-          <div class="xebest-pie xebest-is-critical">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
+      <div class="columns is-mobile" data-bind="foreach: {data: commodities, as: 'commodity'}">
+        <p data-bind="text: console.log($root, $parent, $data)"></p>
+        <div class="column is-one-third" data-bind="click: $parents[1].loadPage, attr: {'data-commodity-id': commodity.commodityId, debug: $parent}">
+          <div class="xebest-pie" data-bind="css: {'xebest-is-critical': commodity.status === 'critical', 'xebest-is-warning': commodity.status === 'warning', 'xebest-is-normal': commodity.status === 'normal'}">
+            <div class="xebest-pie-temperature" data-bind="text: commodity.temperature + ' ℃'"></div>
+            <div class="xebest-pie-description" data-bind="text: commodity.statusContent"></div>
           </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-critical">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-critical">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="xebest-pie-row">
-      <div class="columns is-mobile">
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-warning">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-warning">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-warning">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">高于安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="xebest-pie-row">
-      <div class="columns is-mobile">
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-normal">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-normal">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
-        </div>
-        <div class="column is-one-third">
-          <div class="xebest-pie xebest-is-normal">
-            <div class="xebest-pie-temperature">-4 ℃</div>
-            <div class="xebest-pie-description">安全温度</div>
-          </div>
-          <div class="xebest-pie-name">冷冻猪肋排</div>
+          <div class="xebest-pie-name" data-bind="text: commodity.name"></div>
         </div>
       </div>
     </div>

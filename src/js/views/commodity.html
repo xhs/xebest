@@ -8,38 +8,26 @@
 
 <div class="xebest-container">
   <div class="xebest-commodity-display">
-    <div class="xebest-commodity-display-value">挪威三文鱼</div>
+    <div class="xebest-commodity-display-value" data-bind="text: name"></div>
     <div class="xebest-commodity-display-label">当前运输商品</div>
   </div>
 
   <div class="xebest-commodity-config">
     <div class="field has-addons has-addons-centered">
       <p class="control is-expanded">
-        <input class="input is-fullwidth" type="text">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: newCommodity">
       </p>
       <p class="control">
-        <span class="button xebest-commodity-config-button">设置</span>
+        <span class="button xebest-commodity-config-button" data-bind="click: submit">设置</span>
       </p>
     </div>
 
     <div class="xebest-commodity-config-options">
-      <div class="field">
+      <div class="field" data-bind="foreach: options">
         <div class="pretty p-default p-round p-thick is-block xebest-radio-item">
-          <input type="radio" name="commodity" value="挪威三文鱼" />
+          <input type="radio" name="commodity" data-bind="attr: {value: commodityId}, checked: $parent.newCommodityId"/>
           <div class="state p-primary-o">
-            <label>挪威三文鱼</label>
-          </div>
-        </div>
-        <div class="pretty p-default p-round p-thick is-block xebest-radio-item">
-          <input type="radio" name="commodity" value="冷冻猪肋排" />
-          <div class="state p-primary-o">
-            <label>冷冻猪肋排</label>
-          </div>
-        </div>
-        <div class="pretty p-default p-round p-thick is-block xebest-radio-item">
-          <input type="radio" name="commodity" value="冷冻牛腩" />
-          <div class="state p-primary-o">
-            <label>冷冻牛腩</label>
+            <label data-bind="text: name"></label>
           </div>
         </div>
       </div>

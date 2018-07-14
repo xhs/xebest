@@ -246,6 +246,19 @@ body {
     color: #f95d04;
 }
 
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-warning .xebest-timeline-icon {
+    background-color: #f95d04;
+    box-shadow: 0 0 0 4px #fdc5a1, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-warning .xebest-timeline-content .xebest-timeline-content-title {
+    color: #f95d04;
+}
+
+.xebest-timeline .xebest-timeline-container .xebest-timeline-block.xebest-is-warning .xebest-timeline-content .xebest-timeline-content-body {
+    color: #f95d04;
+}
+
 .xebest-timeline .xebest-timeline-container .xebest-timeline-block .xebest-timeline-icon img {
     display: block;
     width: 24px;
