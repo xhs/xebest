@@ -1,5 +1,5 @@
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
-  function (oj, ko, $, app) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
+  function (oj, ko, $, app, config) {
 
     function StatusViewModel() {
       var self = this

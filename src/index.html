@@ -19,14 +19,23 @@
   <body class="oj-web-applayout-body">
     <!-- Template for rendering navigation items shared between nav bar and nav list -->
     <script type="text/html" id="navTemplate">
-      <li><a href="#">
-        <span :class="[[$data['iconClass']]]"></span>
-        <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
-      </a></li>
+      <li>
+        <a href="#">
+          <span :class="[[$data['iconClass']]]"></span>
+          <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
+        </a>
+      </li>
     </script>
 
     <div id="globalBody" class="oj-offcanvas-outer-wrapper oj-offcanvas-page">
       <div id="navDrawer" role="navigation" class="oj-contrast-marker oj-web-applayout-offcanvas oj-offcanvas-start">
+        <div class="xebest-drawer-header">
+          <div class="xebest-drawer-avatar">
+            <img src="css/images/avatar.png">
+          </div>
+
+          <div class="xebest-drawer-username">Barbara</div>
+        </div>
         <oj-navigation-list data="[[navDataSource]]"
                             edge="start"
                             item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('navTemplate', true)]]"
@@ -40,8 +49,8 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="js/axios.min.js"></script>
     <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
     
     <script type="text/javascript" src="js/libs/require/require.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

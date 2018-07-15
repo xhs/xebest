@@ -1,5 +1,5 @@
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
-  function (oj, ko, $, app) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
+  function (oj, ko, $, app, config) {
 
     function CommodityViewModel() {
       var self = this
@@ -35,25 +35,25 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
           return
         }
 
-        axios.get('http://heng-ge.cn:8080/coldChainLogistics/setCurrentGoodsById.do', {
-            params: {
-              goodsId: newCommodityId
-            }
-          })
-          .then(function (response) {
-            console.log(response)
-            self.newCommodityId('')
-            self.commodityId(newCommodityId)
+        $.ajax({
+          url: config.getBaseUrl() + '/coldChainLogistics/setCurrentGoodsById.do',
+          data: {
+            goodsId: newCommodityId
+          }
+        }).done(function (data) {
+          console.log(data)
+          self.newCommodityId('')
+          self.commodityId(newCommodityId)
 
-            var options = self.options()
-            for (var i = 0; i < options.length; i++) {
-              var option = options[i]
-              if (option.commodityId == newCommodityId) {
-                self.name(option.name)
-                return
-              }
+          var options = self.options()
+          for (var i = 0; i < options.length; i++) {
+            var option = options[i]
+            if (option.commodityId == newCommodityId) {
+              self.name(option.name)
+              return
             }
-          })
+          }
+        })
       }
 
       self.connected = function () {
@@ -61,27 +61,31 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
         self.commodityId('')
         self.options([])
 
-        axios.get('http://heng-ge.cn:8080/coldChainLogistics/getCurrentGoods.do')
-          .then(function (response) {
-            var commodity = response.data.resultMsg
-            self.name(commodity.goodsName)
-            self.commodityId(commodity.goodsId)
-          })
+        $.ajax({
+          url: config.getBaseUrl() + '/coldChainLogistics/getCurrentGoods.do'
+        }).done(function (response) {
+          console.log(response)
+          var commodity = response.resultMsg
+          self.name(commodity.goodsName)
+          self.commodityId(commodity.goodsId)
+        })
 
-        axios.get('http://heng-ge.cn:8080/coldChainLogistics/getTransportableGoodsList.do')
-          .then(function (response) {
-            var candidates = response.data.resultMsg
-            var optionsValue = []
-            for (var i = 0; i < candidates.length; i++) {
-              var candidate = candidates[i]
-              optionsValue.push({
-                name: candidate.goodsName,
-                commodityId: candidate.goodsId
-              })
-            }
+        $.ajax({
+          url: config.getBaseUrl() + '/coldChainLogistics/getTransportableGoodsList.do'
+        }).done(function (response) {
+          console.log(response)
+          var candidates = response.resultMsg
+          var optionsValue = []
+          for (var i = 0; i < candidates.length; i++) {
+            var candidate = candidates[i]
+            optionsValue.push({
+              name: candidate.goodsName,
+              commodityId: candidate.goodsId
+            })
+          }
 
-            self.options(optionsValue)
-          })
+          self.options(optionsValue)
+        })
       }
 
       self.disconnected = function () {

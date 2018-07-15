@@ -6,7 +6,7 @@
   <div class="xebest-navbar-title" data-bind="text: name"></div>
 </nav>
 
-<div class="xebest-container">
+<div class="xebest-flex-container">
   <div class="modal" data-bind="css: {'is-active': ifShowChart}">
     <div class="modal-background" data-bind="click: hideChart"></div>
     <div class="modal-content">
@@ -17,30 +17,36 @@
 
   <div class="xebest-current-temperature">
     <img src="css/images/page_banner.png">
-    <div class="xebest-temperature-pie" data-bind="click: showChart">
+    <div class="xebest-temperature-pie">
       <div class="xebest-temperature-value" data-bind="text: temperature() + '℃'"></div>
       <div class="xebest-temperature-label">当前温度</div>
     </div>
   </div>
 
   <div class="columns is-gapless is-mobile xebest-clear-margin-bottom">
-    <div class="column is-half">
-      <div class="xebest-page-tab xebest-highlight">
+    <div class="column is-half" data-bind="click: showTemperatureTab">
+      <div class="xebest-page-tab" data-bind="css: {'xebest-highlight': currentTab() === 'temperature'}">
         <div class="xebest-tab-content">安全追溯</div>
+        <!-- ko if: currentTab() === 'temperature' -->
         <img class="xebest-highlight-indicator" src="css/images/indicator.png">
+        <!-- /ko -->
       </div>
     </div>
-    <div class="column is-half">
-      <div class="xebest-page-tab">
+    <div class="column is-half" data-bind="click: showLogisticsTab">
+      <div class="xebest-page-tab" data-bind="css: {'xebest-highlight': currentTab() === 'logistics'}">
         <div class="xebest-tab-content">物流跟踪</div>
+        <!-- ko if: currentTab() === 'logistics' -->
+        <img class="xebest-highlight-indicator" src="css/images/indicator.png">
+        <!-- /ko -->
       </div>
     </div>
   </div>
 
+  <!-- ko if: currentTab() === 'temperature' -->
   <div class="xebest-label has-text-white">温度记录</div>
   <div class="xebest-timeline">
     <div class="xebest-timeline-container" data-bind="foreach: traces">
-      <div class="xebest-timeline-block" data-bind="css: {'xebest-is-critical': status === 'critical', 'xebest-is-warning': status === 'warning', 'xebest-is-normal': status === 'normal'}">
+      <div class="xebest-timeline-block" data-bind="css: {'xebest-is-critical': status === 'critical', 'xebest-is-warning': status === 'warning', 'xebest-is-normal': status === 'normal'}, attr: {'data-location-id': locationId, 'data-commodity-id': commodityId}, click: $parent.showChart">
         <div class="xebest-timeline-icon"></div>
         <div class="xebest-timeline-content">
           <div class="xebest-timeline-content-title" data-bind="text: temperature + '℃ ' + location"></div>
@@ -49,4 +55,10 @@
       </div>
     </div>
   </div>
+  <!-- /ko -->
+
+  <!-- ko if: currentTab() === 'logistics' -->
+  <div id="map" class="xebest-logistics" data-bind="click: printPositionRatio">
+  </div>
+  <!-- /ko -->
 </div>

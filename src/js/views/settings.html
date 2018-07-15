@@ -1,0 +1,76 @@
+<nav class="xebest-navbar xebest-is-primary">
+  <div class="xebest-navbar-back" data-bind="click: back">
+    <img src="css/images/back.png">
+  </div>
+
+  <div class="xebest-navbar-title">环境信息设置</div>
+</nav>
+
+<div class="xebest-container">
+  <div class="xebest-settings-container">
+    <p class="label has-text-white">Base URL</p>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: baseUrl">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetBaseUrl">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: changeBaseUrl">设置</span>
+      </p>
+    </div>
+
+    <p class="label has-text-white">External Map URL</p>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" placeholder="(Default Empty)" data-bind="textInput: externalMapUrl">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetExternalMapUrl">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: setExternalMapUrl">设置</span>
+      </p>
+    </div>
+
+    <p class="label has-text-white">Position Ratios</p>
+    <div class="modal" data-bind="css: {'is-active': ifShowPositionRatios}">
+      <div class="modal-background" data-bind="click: hidePositionRatios"></div>
+      <div class="modal-content">
+        <pre data-bind="text: positionRatiosPrettyString"></pre>
+      </div>
+      <button class="modal-close is-large" data-bind="click: hidePositionRatios"></button>
+    </div>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: positionRatiosValue, attr: {'placeholder': positionRatiosString}">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: showPositionRatios">展开</span>
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetPositionRatios">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: setPositionRatios">设置</span>
+      </p>
+    </div>
+
+    <p class="label has-text-white">Route</p>
+    <div class="xebest-settings-route" data-bind="foreach: route">
+      <div data-bind="text: $data"></div>
+    </div>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: routeValue, attr: {'placeholder': routeString}">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetRoute">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: setRoute">设置</span>
+      </p>
+    </div>
+  </div>
+</div>

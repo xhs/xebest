@@ -1,5 +1,5 @@
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
-  function (oj, ko, $, app) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
+  function (oj, ko, $, app, config) {
 
     function ThresholdViewModel() {
       var self = this
@@ -13,29 +13,35 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController'],
       self.threshold = ko.observable('-')
       self.newThreshold = ko.observable('')
 
-      self.submit = function() {
+      self.submit = function () {
         var t = self.newThreshold()
+        if (!t) {
+          return
+        }
         console.log('newThreshold: ' + t)
-        axios.get('http://heng-ge.cn:8080/coldChainLogistics/setTemperatureThreshold.do', {
-            params: {
-              temperature: t
-            }
-          })
-          .then(function(response) {
-            console.log(response)
-            self.threshold(t)
-            self.newThreshold('')
-          })
+
+        $.ajax({
+          url: config.getBaseUrl() + '/coldChainLogistics/setTemperatureThreshold.do',
+          data: {
+            temperature: t
+          }
+        }).done(function (data) {
+          console.log(data)
+          self.threshold(t)
+          self.newThreshold('')
+        })
       }
 
       self.connected = function () {
         self.threshold('-')
 
-        axios.get('http://heng-ge.cn:8080/coldChainLogistics/getTemperatureThreshold.do')
-          .then(function(response) {
-            var currentThreshold = response.data.TemperatureThreshold
-            self.threshold(currentThreshold)
-          })
+        $.ajax({
+          url: config.getBaseUrl() + '/coldChainLogistics/getTemperatureThreshold.do'
+        }).done(function (response) {
+          console.log(response)
+          var currentThreshold = response.TemperatureThreshold
+          self.threshold(currentThreshold)
+        })
       }
 
       self.disconnected = function () {

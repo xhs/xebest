@@ -25,7 +25,8 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojmodule-el
         'page': { label: '商品详情' },
         'threshold': { label: '预警温度' },
         'commodity': { label: '运输商品' },
-        'status': { label: '区块链状态' }
+        'status': { label: '区块链状态' },
+        'settings': { label: '环境信息设置' }
       })
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter()
 
@@ -62,6 +63,10 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojmodule-el
         {
           name: '区块链状态',
           id: 'status'
+        },
+        {
+          name: '环境信息设置',
+          id: 'settings'
         }
       ]
       self.navDataSource = new oj.ArrayTableDataSource(navData, { idAttribute: 'id' })
