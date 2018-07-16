@@ -406,3 +406,22 @@ oj-module {
     font-size: 22px;
     left: 100px;
 }
+
+.xebest-status-container {
+    padding: 20px;
+}
+
+.xebest-divider {
+    margin: 12px 0;
+    background-color: #123455;
+}
+
+.xebest-is-status-ok {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.xebest-is-status-notice {
+    color: #ff0000;
+    font-weight: bold;
+}
