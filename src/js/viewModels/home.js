@@ -17,7 +17,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         self.router.go('page')
       }
 
-      self.connected = function () {
+      self.update = function () {
         $.ajax({
           url: config.getBaseUrl() + '/coldChainLogistics/getGoodsList.do'
         }).done(function (data) {
@@ -53,8 +53,15 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         })
       }
 
+      self.refreshTimer = null
+      self.connected = function () {
+        console.log('home connected')
+        self.update()
+        self.refreshTimer = setInterval(self.update, 5000)
+      }
       self.disconnected = function () {
-        // Implement if needed
+        console.log('home disconnected')
+        clearInterval(self.refreshTimer)
       }
 
       self.transitionCompleted = function () {
