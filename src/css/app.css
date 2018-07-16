@@ -81,7 +81,7 @@ oj-module {
 }
 
 .xebest-pie-row {
-    padding-bottom: 40px;
+    padding-bottom: 15px;
 }
 
 .xebest-pie {
@@ -100,17 +100,20 @@ oj-module {
 
 .xebest-pie.xebest-is-critical {
     background-color: #f75e13;
-    box-shadow: 0 0 20px #2574a8;
+    border: 1px solid #f57c3f;
+    box-shadow: 0 0 10px 4px #9ed0f1;
 }
 
 .xebest-pie.xebest-is-warning {
     background-color: #f79312;
-    box-shadow: 0 0 20px #2574a8;
+    border: 1px solid #f1a745;
+    box-shadow: 0 0 10px 4px #2773a8;
 }
 
 .xebest-pie.xebest-is-normal {
     background-color: #18b4e0;
-    box-shadow: 0 0 20px #2773a8;
+    border: 1px solid #52cbec;
+    box-shadow: 0 0 10px 4px #2773a8;
 }
 
 .xebest-pie .xebest-pie-temperature {
@@ -141,12 +144,13 @@ oj-module {
     position: absolute;
     width: 100px;
     height: 100px;
+    border: 2px solid #23add5;
     border-radius: 50%;
     background-color: #ececec;
     top: 25px;
     left: 50%;
     margin-left: -50px;
-    box-shadow: 0 0 20px #23add5;
+    box-shadow: 0 0 20px #89d9f1;
 }
 
 .xebest-current-temperature .xebest-temperature-pie .xebest-temperature-value {

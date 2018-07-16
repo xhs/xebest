@@ -11,7 +11,7 @@
 
   <div class="xebest-tip has-text-white">食品安全温度提示</div>
 
-  <div class="xebest-pie-container" data-bind="foreach: commodityGroups">
+  <div class="xebest-pie-container" data-bind="foreach: {data: commodityGroups, as: 'group'}">
     <div class="xebest-pie-row">
       <div class="columns is-mobile" data-bind="foreach: {data: commodities, as: 'commodity'}">
         <div class="column is-one-third" data-bind="click: $parents[1].loadPage, attr: {'data-commodity-id': commodity.commodityId, debug: $parent}">
@@ -22,6 +22,9 @@
           <div class="xebest-pie-name" data-bind="text: commodity.name"></div>
         </div>
       </div>
+      <!-- ko ifnot: group.isLast -->
+      <hr class="xebest-divider">
+      <!-- /ko -->
     </div>
   </div>
 </div>

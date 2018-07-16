@@ -40,7 +40,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
 
             if (i % 3 == 0) {
               commodityGroupsValue.push({
-                commodities: [item]
+                commodities: [item],
+                isLast: (i + 3 >= commodities.length)
               })
             } else {
               commodityGroupsValue[commodityGroupsValue.length - 1].commodities.push(item)
