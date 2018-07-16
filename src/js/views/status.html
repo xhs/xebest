@@ -23,7 +23,7 @@
         <div class="level-item is-size-6">运行的节点数</div>
       </div>
       <div class="level-left">
-        <div class="level-item is-size-6 xebest-is-status-ok">5</div>
+        <div class="level-item is-size-6 xebest-is-status-ok" data-bind="text: nodesRunning"></div>
       </div>
     </div>
     <div class="level is-mobile">
@@ -31,7 +31,7 @@
         <div class="level-item is-size-6">停止的节点数</div>
       </div>
       <div class="level-left">
-        <div class="level-item is-size-6 xebest-is-status-notice">0</div>
+        <div class="level-item is-size-6 xebest-is-status-notice" data-bind="text: nodesStopped"></div>
       </div>
     </div>
     <div class="level is-mobile">
@@ -39,7 +39,7 @@
         <div class="level-item is-size-6">健康状态</div>
       </div>
       <div class="level-left">
-        <div class="level-item is-size-6 xebest-is-status-ok">100%</div>
+        <div class="level-item is-size-6 xebest-is-status-ok" data-bind="text: healthPercent"></div>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
         <div class="level-item is-size-6">区块数</div>
       </div>
       <div class="level-left">
-        <div class="level-item is-size-6 xebest-is-status-ok">167</div>
+        <div class="level-item is-size-6 xebest-is-status-ok" data-bind="text: blocks"></div>
       </div>
     </div>
     <div class="level is-mobile">
@@ -58,7 +58,7 @@
         <div class="level-item is-size-6">交易活动</div>
       </div>
       <div class="level-left">
-        <div class="level-item is-size-6 xebest-is-status-ok">1367</div>
+        <div class="level-item is-size-6 xebest-is-status-ok" data-bind="text: transactions"></div>
       </div>
     </div>
   </dir>
