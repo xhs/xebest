@@ -272,15 +272,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         self.temperatureChart.clear()
       }
 
-      self.connected = function () {
-        self.currentTab('temperature')
-        self.temperature('-')
-        self.name('')
-        self.traces([])
-
-        console.log($('#map').width())
-        console.log($('#map').height())
-
+      self.update = function () {
         console.log(self.router.retrieve())
         var info = self.router.retrieve()
         self.commodityId = info.commodityId
@@ -341,12 +333,22 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
             self.traces(tracesValue)
           })
         })
-
-        self.renderMap()
       }
 
+      self.refreshTimer = null
+      self.connected = function () {
+        console.log('page connected')
+        self.currentTab('temperature')
+        self.temperature('-')
+        self.name('')
+        self.traces([])
+
+        self.update()
+        self.refreshTimer = setInterval(self.update, 5000)
+      }
       self.disconnected = function () {
-        // Implement if needed
+        console.log('page disconnected')
+        clearInterval(self.refreshTimer)
       }
 
       self.transitionCompleted = function () {
