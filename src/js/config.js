@@ -19,6 +19,21 @@ define(['jquery'],
         localStorage.removeItem('XEBEST_BASE_URL')
       }
 
+      self.defaultRefreshInterval = 5000
+      self.getRefreshInterval = function () {
+        var interval = localStorage.getItem('XEBEST_REFRESH_INTERVAL')
+        if (interval) {
+          return parseInt(interval)
+        }
+        return self.defaultRefreshInterval
+      }
+      self.setRefreshInterval = function (value) {
+        localStorage.setItem('XEBEST_REFRESH_INTERVAL', value.toString())
+      }
+      self.resetRefreshInterval = function () {
+        localStorage.removeItem('XEBEST_REFRESH_INTERVAL')
+      }
+
       self.getExternalMapUrl = function () {
         var url = localStorage.getItem('XEBEST_EXTERNAL_MAP_URL')
         if (url) {
@@ -33,7 +48,37 @@ define(['jquery'],
         localStorage.removeItem('XEBEST_EXTERNAL_MAP_URL')
       }
 
-      self.defaultRoute = ['北京', '高碑店', '邢台', '安阳', '武汉', '广州', '海口']
+      self.defaultMapWidth = 1127
+      self.getMapWidth = function () {
+        var width = localStorage.getItem('XEBEST_MAP_WIDTH')
+        if (width) {
+          return parseInt(width)
+        }
+        return self.defaultMapWidth
+      }
+      self.setMapWidth = function (value) {
+        localStorage.setItem('XEBEST_MAP_WIDTH', value.toString())
+      }
+      self.resetMapWidth = function () {
+        localStorage.removeItem('XEBEST_MAP_WIDTH')
+      }
+
+      self.defaultMapHeight = 889
+      self.getMapHeight = function () {
+        var height = localStorage.getItem('XEBEST_MAP_HEIGHT')
+        if (height) {
+          return parseInt(height)
+        }
+        return self.defaultMapHeight
+      }
+      self.setMapHeight = function (value) {
+        localStorage.setItem('XEBEST_MAP_HEIGHT', value.toString())
+      }
+      self.resetMapHeight = function () {
+        localStorage.removeItem('XEBEST_MAP_HEIGHT')
+      }
+
+      self.defaultRoute = ['北京', '高碑店', '邢台', '安阳', '郑州']
       self.getRoute = function () {
         var route = localStorage.getItem('XEBEST_ROUTE')
         if (route) {
@@ -49,14 +94,11 @@ define(['jquery'],
       }
 
       self.defaultPositionRatios = {
-        '北京': { xRatio: 0.5222024725254398, yRatio: 0.16236469196088496 },
-        '高碑店': { xRatio: 0.5168738758670169, yRatio: 0.18734387533948263 },
-        '邢台': { xRatio: 0.4849022959164798, yRatio: 0.26727726215099523 },
-        '安阳': { xRatio: 0.47690940092884554, yRatio: 0.31223979223247106 },
-        '郑州': { xRatio: 0.4582593126243656, yRatio: 0.36719399566538596 },
-        '武汉': { xRatio: 0.5035523842209598, yRatio: 0.5195670142748319 },
-        '广州': { xRatio: 0.4902308925749027, yRatio: 0.7868442764258271 },
-        '海口': { xRatio: 0.36234457277275417, yRatio: 0.9242297850081144 }
+        '北京': { "x": 664.1786666666667, "y": 113.3475, "w": 1127, "h": 889 },
+        '高碑店': { "x": 619.0986666666666, "y": 180.0225, "w": 1127, "h": 889 },
+        '邢台': { "x": 453.80533333333335, "y": 506.73, "w": 1127, "h": 889 },
+        '安阳': { "x": 444.78933333333333, "y": 637.8575, "w": 1127, "h": 889 },
+        '郑州': { "x": 360.64, "y": 815.6575, "w": 1127, "h": 889 }
       }
       self.getPositionRatios = function () {
         var ratios = localStorage.getItem('XEBEST_POSITION_RATIOS')

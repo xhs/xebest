@@ -22,6 +22,19 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         self.baseUrl(config.getBaseUrl())
       }
 
+      self.refreshInterval = ko.observable('')
+      self.changeRefreshInterval = function() {
+        if (!self.refreshInterval()) {
+          self.refreshInterval(config.getRefreshInterval())
+        }
+
+        config.setRefreshInterval(self.refreshInterval())
+      }
+      self.resetRefreshInterval = function() {
+        config.resetRefreshInterval()
+        self.refreshInterval(config.getRefreshInterval())
+      }
+
       self.externalMapUrl = ko.observable('')
       self.setExternalMapUrl = function() {
         if (!self.externalMapUrl()) {
@@ -33,6 +46,32 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
       self.resetExternalMapUrl = function() {
         config.resetExternalMapUrl()
         self.externalMapUrl(config.getExternalMapUrl())
+      }
+
+      self.mapWidth = ko.observable('')
+      self.setMapWidth = function() {
+        if (!self.mapWidth()) {
+          self.mapWidth(config.getMapWidth())
+        }
+
+        config.setMapWidth(self.mapWidth())
+      }
+      self.resetMapWidth = function() {
+        config.resetMapWidth()
+        self.mapWidth(config.getMapWidth())
+      }
+
+      self.mapHeight = ko.observable('')
+      self.setMapHeight = function() {
+        if (!self.mapHeight()) {
+          self.mapHeight(config.getMapHeight())
+        }
+
+        config.setMapHeight(self.mapHeight())
+      }
+      self.resetMapHeight = function() {
+        config.resetMapHeight()
+        self.mapHeight(config.getMapHeight())
       }
 
       self.route = ko.observableArray([])
@@ -84,6 +123,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
 
       self.connected = function () {
         self.baseUrl(config.getBaseUrl())
+        self.refreshInterval(config.getRefreshInterval())
+        self.mapWidth(config.getMapWidth())
+        self.mapHeight(config.getMapHeight())
         self.route(config.getRoute())
         self.positionRatios(config.getPositionRatios())
       }

@@ -21,6 +21,19 @@
       </p>
     </div>
 
+    <p class="label has-text-white">Refresh Interval</p>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: refreshInterval">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetRefreshInterval">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: changeRefreshInterval">设置</span>
+      </p>
+    </div>
+
     <p class="label has-text-white">External Map URL</p>
     <div class="field has-addons">
       <p class="control is-expanded">
@@ -31,6 +44,32 @@
       </p>
       <p class="control">
         <span class="button xebest-submit-button" data-bind="click: setExternalMapUrl">设置</span>
+      </p>
+    </div>
+
+    <p class="label has-text-white">Original Map Width</p>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: mapWidth">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetMapWidth">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: setMapWidth">设置</span>
+      </p>
+    </div>
+
+    <p class="label has-text-white">Original Map Height</p>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input is-fullwidth" type="text" data-bind="textInput: mapHeight">
+      </p>
+      <p class="control">
+        <span class="button" data-bind="click: resetMapHeight">重置</span>
+      </p>
+      <p class="control">
+        <span class="button xebest-submit-button" data-bind="click: setMapHeight">设置</span>
       </p>
     </div>
 

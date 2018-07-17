@@ -41,11 +41,29 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         var mapWidth = mapElement.offsetWidth
         var mapHeight = mapElement.offsetHeight
         var routeInfo = definedRoute.map(function (name) {
-          var x = Math.round(mapWidth * positionRatios[name].xRatio)
-          var y = Math.round(mapHeight * (1 - positionRatios[name].yRatio))
+          var x = positionRatios[name].x
+          var y = positionRatios[name].y
+          var w = positionRatios[name].w
+          var h = positionRatios[name].h
+
+          var h1 = mapHeight
+          var w1 = w * h1 / h
+          var padding = Math.abs(w1 - mapWidth) / 2
+
+          var x1 = w1 * x / w
+          var y1 = h1 * y / h
+
+          var x2 = x1 - padding
+          var y2 = mapHeight - y1
+
+          console.log(JSON.stringify({ Wm: mapWidth, Hm: mapHeight }))
+          console.log(positionRatios[name])
+          console.log(JSON.stringify({ x1: x1, y1: y1, w1: w1, h1: h1, padding: padding }))
+          console.log(JSON.stringify({ x2: x2, y2: y2 }))
+
           return {
             name: name,
-            coordinate: [x, y]
+            coordinate: [x2, y2]
           }
         })
         console.log(routeInfo)
@@ -186,10 +204,27 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
       }
 
       self.printPositionRatio = function (_, event) {
-        var rect = document.getElementById('map').getBoundingClientRect()
-        var x = event.clientX - rect.left
-        var y = event.clientY - rect.top
-        console.log("{ xRatio: " + x / rect.width + ", yRatio: " + y / rect.height + " }")
+        var Wp = config.getMapWidth()
+        var Hp = config.getMapHeight()
+
+        var el = document.getElementById('map')
+        var w = el.offsetWidth
+        var h = el.offsetHeight
+
+        var rect = el.getBoundingClientRect()
+        var x1 = event.clientX - rect.left
+        var y1 = event.clientY - rect.top
+
+        var x = x1 * Wp / w
+        var y = y1 * Hp / h
+
+        var info = {
+          x: x,
+          y: y,
+          w: Wp,
+          h: Hp
+        }
+        console.log(JSON.stringify(info))
       }
 
       self.showChart = function (_, event) {
@@ -344,7 +379,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         self.traces([])
 
         self.update()
-        self.refreshTimer = setInterval(self.update, 5000)
+        self.refreshTimer = setInterval(self.update, config.getRefreshInterval())
       }
       self.disconnected = function () {
         console.log('page disconnected')

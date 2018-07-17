@@ -379,8 +379,9 @@ oj-module {
     width: 100%;
     flex: 1;
     overflow: auto;
-    background-image: url('images/map_bg.jpg');
-    background-size: 100% 100%;
+    background-image: url('images/map_bg.png');
+    background-size: auto 100%;
+    background-position: center;
     background-repeat: no-repeat;
 }
 

@@ -57,7 +57,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
       self.connected = function () {
         console.log('home connected')
         self.update()
-        self.refreshTimer = setInterval(self.update, 5000)
+        self.refreshTimer = setInterval(self.update, config.getRefreshInterval())
       }
       self.disconnected = function () {
         console.log('home disconnected')
