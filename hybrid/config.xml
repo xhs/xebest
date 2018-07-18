@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.oraclejet.xebest" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.oraclecorp.internal.ent3.xebest" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>鲜易冷链追溯</name>
     <description>
         An Oracle JavaScript Extension Toolkit(JET) web app
@@ -61,6 +61,12 @@
         <allow-intent href="itms-apps:*" />
         <preference name="Orientation" value="all" />
         <preference name="DisallowOverscroll" value="true" />
+        <edit-config file="*-Info.plist" mode="merge" target="UIStatusBarHidden">
+            <true />
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="UIViewControllerBasedStatusBarAppearance">
+            <false />
+        </edit-config>
         <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
         <icon height="58" src="res/icon/ios/icon-small@2x.png" width="58" />
         <icon height="87" src="res/icon/ios/icon-small@3x.png" width="87" />
@@ -95,4 +101,5 @@
     <hook src="scripts/hooks/jetAfterPrepare.js" type="after_prepare" />
     <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.3" />
+    <engine name="ios" spec="^4.4.0" />
 </widget>
