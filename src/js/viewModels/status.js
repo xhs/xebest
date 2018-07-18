@@ -16,13 +16,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
       self.blocks = ko.observable('-')
       self.transactions = ko.observable('-')
 
-      self.connected = function () {
-        self.nodesRunning('-')
-        self.nodesStopped('-')
-        self.healthPercent('-')
-        self.blocks('-')
-        self.transactions('-')
-
+      self.update = function () {
         $.ajax({
           url: config.getBaseUrl() + '/coldChainLogistics/getBlockChainInfo.do'
         }).done(function (data) {
@@ -37,8 +31,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'config'],
         })
       }
 
+      self.refreshTimer = null
+      self.connected = function () {
+        console.log('status connected')
+        self.nodesRunning('-')
+        self.nodesStopped('-')
+        self.healthPercent('-')
+        self.blocks('-')
+        self.transactions('-')
+
+        self.update()
+        self.refreshTimer = setInterval(self.update, config.getRefreshInterval())
+      }
       self.disconnected = function () {
-        // Implement if needed
+        console.log('status connected')
+        clearInterval(self.refreshTimer)
       }
 
       self.transitionCompleted = function () {
